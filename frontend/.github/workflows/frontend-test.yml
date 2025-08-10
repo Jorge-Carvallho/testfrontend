@@ -1,0 +1,31 @@
+name: Frontend Tests
+
+on:
+  push:
+    branches: [ "main", "staging" ]
+  pull_request:
+    branches: [ "main", "staging" ]
+
+jobs:
+  test-frontend:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Navegar para frontend e instalar dependências
+        run: |
+          cd frontend
+          npm install
+
+      - name: Rodar testes com vitest
+        run: |
+          cd frontend
+          npx vitest run --passWithNoTests
+##
