@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import InputField from '@/components/InputField'
-import { renderWithForm } from '@/test/__utils__/renderWithForm'
+import { renderWithForm } from '@/test/utils/renderWithForm'
 
 type FormModel = { email: string; pwd: string; age: number }
 
